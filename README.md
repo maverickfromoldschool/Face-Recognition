@@ -1,16 +1,16 @@
 #structure of this project is given below:
 # Project Structure
 
-|-- model_directory
-│--|-- 20170511–185253
-│--│--|-- 20170511–185253.pb
+#|-- model_directory
+#│--|-- 20170511–185253
+#│--│--|-- 20170511–185253.pb
 
-|-- Training_set
-|--|-- Person_1
-|--|-- Person_2
-|--|-- Person_3
-....
-....
+#|-- Training_set
+#|--|-- Person_1
+#|--|-- Person_2
+#|--|-- Person_3
+#....
+#....
 |--|-- Person_n
 
 
