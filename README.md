@@ -24,7 +24,7 @@ pip install "somepackage name".
 To install dlib you can follow the https://www.learnopencv.com/install-opencv-3-and-dlib-on-windows-python-only/
 setting up with dlib is the most tough part part of project especially in windows, after managing the dlib setup rest is a piece of cake.
 
-What is the structure of project
+What is the structure of project,
 structure of project can be anything but what i will recommend you is
     
    
@@ -41,3 +41,19 @@ structure of project can be anything but what i will recommend you is
 │ ├── shape_predictor_68_face_landmarks.dat
 │ └── train_classifier.py
 ├── requirements.txt
+
+WHAT WILL BE THE APPROACH 
+
+In 2015, researchers from Google released a paper, FaceNet, which uses a convolutional neural network relying on the image pixels as the features, rather than extracting them manually. It achieved a new record accuracy of 99.63% on the LFW dataset.
+FaceNet: In the FaceNet paper, a convolutional neural network architecture is proposed. For a loss function, FaceNet uses “triplet loss”. Triplet loss relies on minimizing the distance from positive examples, while maximizing the distance from negative examples.
+Conceptually, this makes sense. Faces of the same identity should appear closer to each other than faces of another identity.
+The important take away from the paper is the idea of representing a face as a 128-dimensional embedding. An embedding is the collective name for mapping input features to vectors. In a facial recognition system, these inputs are images containing a subject’s face, mapped to a numerical vector representation.Since these vector embeddings are represented in shared vector space, vector distance can be used to calculate the similarity between two vectors. In a facial recognition context, this can vector distance be applied to calculate how similar two faces are. Additionally, these embeddings can be used as feature inputs into a classification, clustering, or regression task.
+
+This project is divided into 3 part
+    DATA PREPROCESSING
+    TRAINING THE MODEL
+    TESTING THE MODEL
+    
+
+    
+    
