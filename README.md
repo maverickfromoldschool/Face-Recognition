@@ -3,7 +3,7 @@ To follow this project it is highly recommended you, read the "Readme.MD" file a
 I don't explain the technical detail of codes in the description, the codes are quite self-explanatory and it is expected from you that you have some prior knowledge of python and machine learning, for getting better intuition please go through code and don't hesitate to play with it, necessary information regarding code is already commented in code, for getting better understanding you can also use google
 
 
-
+"now open the"README.MD" and read as raw" :)
 
 
 
