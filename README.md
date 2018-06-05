@@ -52,13 +52,13 @@ structure of project can be anything, but what i will recommend you is
 -------------------------
 ├──|--folder for person n
 ├──|--|--images of person n
-├── align_dlib.py
-├── download_and_extract_model.py
+├── Align_Dlib.py
+├── model.py
 ├── lfw_input.py
-├── preprocess.py
+├── preprocessor.py
 ├── shape_predictor_68_face_landmarks.dat
 └── train_classifier.py
-├── test.py
+├── testicals.py
 
 WHAT WILL BE THE APPROACH 
 
@@ -83,7 +83,7 @@ Now follow the Align_Dlib.py from the repostery
 
 This file, sourced from CMU, provides methods for detecting a face in an image, finding facial landmarks, and alignment given these landmarks.
 
-After this follow the preprocess.py from repostery
+After this follow the preprocessor.py from repostery
 
 Now you created a preprocessor for your dataset. This file will read each image into memory, attempt to find the largest face, center align, and write the file to output. If a face cannot be found in the image, logging will be displayed to console with the filename.
 
@@ -98,7 +98,7 @@ NOW TIME TO TRAIN THE MODEL ON PROCESSED DATA
 
 TRAIN THE MODEL : Now that you’ve preprocessed the data,now you’ll generate vector embeddings of each identity. These embeddings can then be used as input to a classification, regression or clustering task.You’ll use the Inception Resnet V1 as your convolutional neural network. First, create a file to download the weights to the model.By using pre-trained weights, you are able to apply transfer learning to a new dataset.to download the model run the following python script , by the help of this you will be able to use pretrained network.
 
-Run "downloadandextractmodel.py"
+Run "model.py"
 
 After extracting the model paste int project directory according to project structure.
 
@@ -110,8 +110,9 @@ To perform training follow the Train_classifier.py
 
 Now that you’ve trained the classifier, you’ll feed it new images it has not trained on. You’ll remove the is_train flag from the previous command to evaluate your results.
 
-TEST THE MODEL : After Training its time to test the model, so here we go.First we have to find that in which form we have to provide input, the answer in my case is ,a single image that may contain several faces.i created "test.py" script whose code is self explanatory, although i will give intution about code in this discussion.
-this script takes a image as input then it turn into gray image because color and oculasion is not important in recognition. After turning it into gray image , it detect all the faces and align them according to facial landmark. After that it create embedding for each face and compare this embedding with the trained faces embedding, if the test face and trained face vector distance is enough close this it predict the result with certain accuracy.
+TEST THE MODEL : After Training its time to test the model, so here we go.First we have to find that in which form we have to provide input, the answer in my case is ,a single image that may contain several faces.i created "test.py" script whose code is self explanatory, although i will give intution about code in this discussion.this script takes a image as input then it turn into gray image because color and oculasion is not important in recognition. After turning it into gray image , it detect all the faces and align them according to facial landmark. After that it create embedding for each face and compare this embedding with the trained faces embedding, if the test face and trained face vector distance is enough close this it predict the result with certain accuracy.
+
+Now go along with "testicals.py"
 
 To understand this technically go along with code.
 
