@@ -54,6 +54,34 @@ This project is divided into 3 part
     TRAINING THE MODEL
     TESTING THE MODEL
     
+Data Preprocessing : Below, you’ll pre-process the images before passing them into the FaceNet model. Image pre-processing in a facial recognition context typically solves a few problems. These problems range from lighting differences, occlusion, alignment, segmentation. Below, you’ll address segmentation and alignment.First, you’ll solve the segmentation problem by finding the largest face in an image. This is useful as our training data does not have to be cropped for a face ahead of time.Second, you’ll solve alignment. In photographs, it is common for a face to not be perfectly center aligned with the image. To standardize input, you’ll apply a transform to center all images based on the location of eyes and bottom lip.First download dlib’s face landmark predictor,to process the dataset, you can download it from here.
 
-    
-    
+http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2
+
+After downloading and extracting paste the "Shapepredictor68landmark.dat" file in the project directory according to project structure. 
+You’ll use this face landmark predictor to find the location of the inner eyes and bottom lips of a face in an image. These coordinates will be used to center align the image.
+
+Now follow the Align_Dlib.py from the repostery
+
+This file, sourced from CMU, provides methods for detecting a face in an image, finding facial landmarks, and alignment given these landmarks.
+
+After this follow the preprocess.py from repostery
+
+Now you created a preprocessor for your dataset. This file will read each image into memory, attempt to find the largest face, center align, and write the file to output. If a face cannot be found in the image, logging will be displayed to console with the filename.
+
+Now that you’ve created a pipeline, time to get results. As the script supports parallelism, you will see increased performance by running with multiple cores. You’ll need to run the preprocessor in the docker environment to have access to the installed libraries.
+Below, you’ll mount your project directory as a volume inside the docker container and run the preprocessing script on your input data. The results will be written to a directory specified with command line arguments.
+
+what we have done yet in DATA Preprocessing
+
+Using Dlib, you detected the largest face in an image and aligned the center of the face by the inner eyes and bottom lip. This alignment is a method for standardizing each image for use as feature input.
+
+NOW TIME TO TRAIN THE MODEL ON PROCESSED DATA
+
+TRAIN THE MODEL : Now that you’ve preprocessed the data, you’ll generate vector embeddings of each identity. These embeddings can then be used as input to a classification, regression or clustering task.You’ll use the Inception Resnet V1 as your convolutional neural network. First, create a file to download the weights to the model.By using pre-trained weights, you are able to apply transfer learning to a new dataset.to download the model run the following python script , by the help of this you will be able to use pretrained network.
+
+Run "downloadandextractmodel.py"
+
+
+
+ 
