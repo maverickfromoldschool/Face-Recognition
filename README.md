@@ -7,9 +7,11 @@ The purpose of this project is to detect and recognize faces appear in the image
 3rd pipeline is to test the test-image.this pipeline take single image as input then detect all faces from image then align them if they are not and finally compare each face with the faces of trained character and predict the result with certain acurracy.
 
 what are prerequiste of this project
+
 Good command in Python 3.x and basic knowledge of machine learning,deep learning and other stuff like tensorflow.
 
 what are dependencies of project
+
 i implement this system in ubuntu you can also go with Mac/Win.i choose ubuntu because setting up with dependencies is quite easy with ubuntu than with windows.
 you need the following in order to work along with me
 1)python 3.x
