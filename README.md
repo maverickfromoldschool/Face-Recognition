@@ -78,9 +78,24 @@ Using Dlib, you detected the largest face in an image and aligned the center of 
 
 NOW TIME TO TRAIN THE MODEL ON PROCESSED DATA
 
-TRAIN THE MODEL : Now that you’ve preprocessed the data, you’ll generate vector embeddings of each identity. These embeddings can then be used as input to a classification, regression or clustering task.You’ll use the Inception Resnet V1 as your convolutional neural network. First, create a file to download the weights to the model.By using pre-trained weights, you are able to apply transfer learning to a new dataset.to download the model run the following python script , by the help of this you will be able to use pretrained network.
+TRAIN THE MODEL : Now that you’ve preprocessed the data,now you’ll generate vector embeddings of each identity. These embeddings can then be used as input to a classification, regression or clustering task.You’ll use the Inception Resnet V1 as your convolutional neural network. First, create a file to download the weights to the model.By using pre-trained weights, you are able to apply transfer learning to a new dataset.to download the model run the following python script , by the help of this you will be able to use pretrained network.
 
 Run "downloadandextractmodel.py"
+
+After extracting the model paste int project directory according to project structure.
+
+Below, you’ll utilize Tensorflow’s queue api to load the preprocessed images in parallel. By using queues, images can be loaded in parallel using multi-threading. When using a GPU, this allows image preprocessing to be performed on CPU, while matrix multiplication is performed on GPU.To do do this follow the lwf_input.py 
+
+With the input queue squared away, you’ll move on to creating the embeddings.First, you’ll load the images from the queue you created. While training, you’ll apply preprocessing to the image. This preprocessing will add random transformations to the image, creating more images to train on.These images will be fed in a batch size of 128 into the model. This model will return a 128 dimensional embedding for each image, returning a 128 x 128 matrix for each batch.After these embeddings are created, you’ll use them as feature inputs into a scikit-learn’s SVM classifier to train on each identity. Identities with less than 10 images will be dropped. This parameter is tunable.
+
+To perform training follow the Train_classifier.py 
+
+Now that you’ve trained the classifier, you’ll feed it new images it has not trained on. You’ll remove the is_train flag from the previous command to evaluate your results.
+
+TEST THE MODEL : After Training its time to test the model, so here we go.First we have to find that in which form we have to provide input, the answer in my case is ,a single image that may contain several faces.i created "test.py" script whose code is self explanatory, although i will give intution about code in this discussion.
+this script takes a image as input then it turn into gray image because color and oculasion is not important in recognition. After turning it into gray image , it detect all the faces and align them according to facial landmark. After that it create embedding for each face and compare this embedding with the trained faces embedding, if the test face and trained face vector distance is enough close this it predict the result with certain accuracy.
+
+To understand this technically go along with code.
 
 
 
