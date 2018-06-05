@@ -18,7 +18,9 @@ you need the following in order to work along with me
 2)tensorflow 
 3)dlib
 These are the main dependency rest are easy to install via pip command, pip command to install package in python is given below
+
 pip install "somepackage name".
+
 To install dlib you can follow the https://www.learnopencv.com/install-opencv-3-and-dlib-on-windows-python-only/
 setting up with dlib is the most tough part part of project especially in windows, after managing the dlib setup rest is a piece of cake.
 
